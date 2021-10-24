@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -66,8 +67,7 @@ namespace Negrisan_Mihai_Lab2.Controllers
 
             int pageSize = 2;
 
-            return View(await PaginatedList<Book>.CreateAsync(books.AsNoTracking(), pageNumber ??
-                1, pageSize));
+            return View(await PaginatedList<Book>.CreateAsync(books.AsNoTracking(), pageNumber ?? 1, pageSize));
         }
 
         // GET: Books/Details/5
@@ -117,8 +117,7 @@ namespace Negrisan_Mihai_Lab2.Controllers
             catch (DbUpdateException)
             {
 
-                ModelState.AddModelError("", "Unable to save changes. " +
-                                             "Try again, and if the problem persists ");
+                ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists ...");
             }
             return View(book);
         }
@@ -152,6 +151,8 @@ namespace Negrisan_Mihai_Lab2.Controllers
             }
             var bookToUpdate = await _context.Books.FirstOrDefaultAsync(b => b.ID == id);
 
+            // Pentru a actualiza campurile entitatii curente pe baza inputului introdus in formular de catre utilizator.
+            // Ca si best practice pentru a preveni overposting, campurile care dorim sa fie editabile in pagina Edit, sunt declarate ca si parametrii pentru TryUpdateModel.
             if (await TryUpdateModelAsync<Book>(
                 bookToUpdate,
                 "",
@@ -166,8 +167,7 @@ namespace Negrisan_Mihai_Lab2.Controllers
                 }
                 catch (DbUpdateException /* ex */)
                 {
-                    ModelState.AddModelError("", "Unable to save changes. " +
-                                                 "Try again, and if the problem persists");
+                    ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists ...");
                 }
             }
             return View(bookToUpdate);
@@ -184,14 +184,15 @@ namespace Negrisan_Mihai_Lab2.Controllers
             var book = await _context.Books
                 .AsNoTracking()
                 .FirstOrDefaultAsync(m => m.ID == id);
+
             if (book == null)
             {
                 return NotFound();
             }
+
             if (saveChangesError.GetValueOrDefault())
             {
-                ViewData["ErrorMessage"] =
-                    "Delete failed. Try again";
+                ViewData["ErrorMessage"] = "Delete failed. Try again";
             }
 
             return View(book);
