@@ -150,14 +150,14 @@ namespace Negrisan_Mihai_Lab2.Controllers
             {
                 return NotFound();
             }
-            var studentToUpdate = await _context.Books.FirstOrDefaultAsync(s => s.ID == id);
+            var bookToUpdate = await _context.Books.FirstOrDefaultAsync(b => b.ID == id);
 
             if (await TryUpdateModelAsync<Book>(
-                studentToUpdate,
+                bookToUpdate,
                 "",
-                s => s.Author, 
-                s => s.Title, 
-                s => s.Price))
+                b => b.Author, 
+                b => b.Title, 
+                b => b.Price))
             {
                 try
                 {
@@ -170,7 +170,7 @@ namespace Negrisan_Mihai_Lab2.Controllers
                                                  "Try again, and if the problem persists");
                 }
             }
-            return View(studentToUpdate);
+            return View(bookToUpdate);
         }
 
         // GET: Books/Delete/5
