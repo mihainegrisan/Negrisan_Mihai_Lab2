@@ -32,17 +32,20 @@ namespace Negrisan_Mihai_Lab2.Controllers
                 .AsNoTracking()
                 .OrderBy(i => i.PublisherName)
                 .ToListAsync();
+
             if (id != null)
             {
                 ViewData["PublisherID"] = id.Value;
                 Publisher publisher = viewModel.Publishers.Where(i => i.ID == id.Value).Single();
                 viewModel.Books = publisher.PublishedBooks.Select(s => s.Book);
             }
+
             if (bookID != null)
             {
-                ViewData["BoookID"] = bookID.Value;
+                ViewData["BookID"] = bookID.Value;
                 viewModel.Orders = viewModel.Books.Where(x => x.ID == bookID).Single().Orders;
             }
+
             return View(viewModel);
         }
 
