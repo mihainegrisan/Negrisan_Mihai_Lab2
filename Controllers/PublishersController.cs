@@ -86,6 +86,7 @@ namespace Negrisan_Mihai_Lab2.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+
             return View(publisher);
         }
 
@@ -96,18 +97,23 @@ namespace Negrisan_Mihai_Lab2.Controllers
             {
                 return NotFound();
             }
+
             var publisher = await _context.Publishers
-                .Include(i => i.PublishedBooks).ThenInclude(i => i.Book)
+                .Include(i => i.PublishedBooks)
+                .ThenInclude(i => i.Book)
                 .AsNoTracking()
                 .FirstOrDefaultAsync(m => m.ID == id);
+
             if (publisher == null)
             {
                 return NotFound();
             }
-            PopulatePublishedBookData(publisher);
-            return View(publisher);
 
+            PopulatePublishedBookData(publisher);
+
+            return View(publisher);
         }
+        
         private void PopulatePublishedBookData(Publisher publisher)
         {
             var allBooks = _context.Books;
@@ -153,8 +159,7 @@ namespace Negrisan_Mihai_Lab2.Controllers
                 catch (DbUpdateException /* ex */)
                 {
 
-                    ModelState.AddModelError("", "Unable to save changes. " +
-                                                 "Try again, and if the problem persists, ");
+                    ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists, ");
                 }
                 return RedirectToAction(nameof(Index));
             }
@@ -169,9 +174,10 @@ namespace Negrisan_Mihai_Lab2.Controllers
                 publisherToUpdate.PublishedBooks = new List<PublishedBook>();
                 return;
             }
+
             var selectedBooksHS = new HashSet<string>(selectedBooks);
-            var publishedBooks = new HashSet<int>
-                (publisherToUpdate.PublishedBooks.Select(c => c.Book.ID));
+            var publishedBooks = new HashSet<int>(publisherToUpdate.PublishedBooks.Select(c => c.Book.ID));
+
             foreach (var book in _context.Books)
             {
                 if (selectedBooksHS.Contains(book.ID.ToString()))
@@ -180,8 +186,7 @@ namespace Negrisan_Mihai_Lab2.Controllers
                     {
                         publisherToUpdate.PublishedBooks.Add(new PublishedBook
                         {
-                            PublisherID =
-                                publisherToUpdate.ID,
+                            PublisherID = publisherToUpdate.ID,
                             BookID = book.ID
                         });
                     }
@@ -190,8 +195,7 @@ namespace Negrisan_Mihai_Lab2.Controllers
                 {
                     if (publishedBooks.Contains(book.ID))
                     {
-                        PublishedBook bookToRemove = publisherToUpdate.PublishedBooks.FirstOrDefault(i
-                            => i.BookID == book.ID);
+                        PublishedBook bookToRemove = publisherToUpdate.PublishedBooks.FirstOrDefault(i => i.BookID == book.ID);
                         _context.Remove(bookToRemove);
                     }
                 }
