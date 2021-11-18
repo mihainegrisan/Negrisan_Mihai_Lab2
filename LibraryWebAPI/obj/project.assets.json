@@ -7352,28 +7352,20 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\mihai\\.nuget\\packages\\": {},
-    "D:\\Programs\\Visual Studio 2019\\Shared components, tools, and SDKs\\NuGetPackages": {},
-    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Users\\mihai\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mihai\\Desktop\\Master\\Sem1\\Medii de programare avansate\\Laboratoare\\Negrisan_Mihai_Lab2\\LibraryWebAPI\\LibraryWebAPI.csproj",
+      "projectUniqueName": "C:\\Users\\mihai\\Source\\Repos\\mihainegrisan\\Negrisan_Mihai_Lab2\\LibraryWebAPI\\LibraryWebAPI.csproj",
       "projectName": "LibraryWebAPI",
-      "projectPath": "C:\\Users\\mihai\\Desktop\\Master\\Sem1\\Medii de programare avansate\\Laboratoare\\Negrisan_Mihai_Lab2\\LibraryWebAPI\\LibraryWebAPI.csproj",
+      "projectPath": "C:\\Users\\mihai\\Source\\Repos\\mihainegrisan\\Negrisan_Mihai_Lab2\\LibraryWebAPI\\LibraryWebAPI.csproj",
       "packagesPath": "C:\\Users\\mihai\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mihai\\Desktop\\Master\\Sem1\\Medii de programare avansate\\Laboratoare\\Negrisan_Mihai_Lab2\\LibraryWebAPI\\obj\\",
+      "outputPath": "C:\\Users\\mihai\\Source\\Repos\\mihainegrisan\\Negrisan_Mihai_Lab2\\LibraryWebAPI\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "D:\\Programs\\Visual Studio 2019\\Shared components, tools, and SDKs\\NuGetPackages",
-        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
-      ],
       "configFilePaths": [
         "C:\\Users\\mihai\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
@@ -7386,8 +7378,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\mihai\\Desktop\\Master\\Sem1\\Medii de programare avansate\\Laboratoare\\Negrisan_Mihai_Lab2\\LibraryModel\\LibraryModel.csproj": {
-              "projectPath": "C:\\Users\\mihai\\Desktop\\Master\\Sem1\\Medii de programare avansate\\Laboratoare\\Negrisan_Mihai_Lab2\\LibraryModel\\LibraryModel.csproj"
+            "C:\\Users\\mihai\\Source\\Repos\\mihainegrisan\\Negrisan_Mihai_Lab2\\LibraryModel\\LibraryModel.csproj": {
+              "projectPath": "C:\\Users\\mihai\\Source\\Repos\\mihainegrisan\\Negrisan_Mihai_Lab2\\LibraryModel\\LibraryModel.csproj"
             }
           }
         }
@@ -7443,7 +7435,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

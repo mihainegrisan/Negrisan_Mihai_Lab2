@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "bHQQprXUSr6JCO6H/U3L+kfTNLOqoyZ1dRFQb2sGP4RGfoAD1oGCt0lHYUnAMzmUQUfKQQ+oEadEPeEnIwKkfA==",
+  "dgSpecHash": "4r1dc8WFaBLsKdmeuJ/KKF3b5n9qkSCz3Z+57IrApFav6Sb6zef2vVYRmXpttRapIPscDR+06hI2X4TTPsY99w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\mihai\\Desktop\\Master\\Sem1\\Medii de programare avansate\\Laboratoare\\Negrisan_Mihai_Lab2\\LibraryModel\\LibraryModel.csproj",
+  "projectFilePath": "C:\\Users\\mihai\\Source\\Repos\\mihainegrisan\\Negrisan_Mihai_Lab2\\LibraryModel\\LibraryModel.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mihai\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\mihai\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",

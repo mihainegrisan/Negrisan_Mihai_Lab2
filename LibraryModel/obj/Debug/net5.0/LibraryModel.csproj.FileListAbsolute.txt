@@ -13,3 +13,18 @@ C:\Users\mihai\Desktop\Master\Sem1\Medii de programare avansate\Laboratoare\06\L
 C:\Users\mihai\Desktop\Master\Sem1\Medii de programare avansate\Laboratoare\06\LibraryModel\bin\Debug\net5.0\LibraryModel.runtimeconfig.json
 C:\Users\mihai\Desktop\Master\Sem1\Medii de programare avansate\Laboratoare\06\LibraryModel\bin\Debug\net5.0\LibraryModel.runtimeconfig.dev.json
 C:\Users\mihai\Desktop\Master\Sem1\Medii de programare avansate\Laboratoare\06\LibraryModel\obj\Debug\net5.0\LibraryModel.genruntimeconfig.cache
+C:\Users\mihai\Source\Repos\mihainegrisan\Negrisan_Mihai_Lab2\LibraryModel\bin\Debug\net5.0\LibraryModel.deps.json
+C:\Users\mihai\Source\Repos\mihainegrisan\Negrisan_Mihai_Lab2\LibraryModel\bin\Debug\net5.0\LibraryModel.runtimeconfig.json
+C:\Users\mihai\Source\Repos\mihainegrisan\Negrisan_Mihai_Lab2\LibraryModel\bin\Debug\net5.0\LibraryModel.runtimeconfig.dev.json
+C:\Users\mihai\Source\Repos\mihainegrisan\Negrisan_Mihai_Lab2\LibraryModel\bin\Debug\net5.0\LibraryModel.dll
+C:\Users\mihai\Source\Repos\mihainegrisan\Negrisan_Mihai_Lab2\LibraryModel\bin\Debug\net5.0\ref\LibraryModel.dll
+C:\Users\mihai\Source\Repos\mihainegrisan\Negrisan_Mihai_Lab2\LibraryModel\bin\Debug\net5.0\LibraryModel.pdb
+C:\Users\mihai\Source\Repos\mihainegrisan\Negrisan_Mihai_Lab2\LibraryModel\obj\Debug\net5.0\LibraryModel.csproj.AssemblyReference.cache
+C:\Users\mihai\Source\Repos\mihainegrisan\Negrisan_Mihai_Lab2\LibraryModel\obj\Debug\net5.0\LibraryModel.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mihai\Source\Repos\mihainegrisan\Negrisan_Mihai_Lab2\LibraryModel\obj\Debug\net5.0\LibraryModel.AssemblyInfoInputs.cache
+C:\Users\mihai\Source\Repos\mihainegrisan\Negrisan_Mihai_Lab2\LibraryModel\obj\Debug\net5.0\LibraryModel.AssemblyInfo.cs
+C:\Users\mihai\Source\Repos\mihainegrisan\Negrisan_Mihai_Lab2\LibraryModel\obj\Debug\net5.0\LibraryModel.csproj.CoreCompileInputs.cache
+C:\Users\mihai\Source\Repos\mihainegrisan\Negrisan_Mihai_Lab2\LibraryModel\obj\Debug\net5.0\LibraryModel.dll
+C:\Users\mihai\Source\Repos\mihainegrisan\Negrisan_Mihai_Lab2\LibraryModel\obj\Debug\net5.0\ref\LibraryModel.dll
+C:\Users\mihai\Source\Repos\mihainegrisan\Negrisan_Mihai_Lab2\LibraryModel\obj\Debug\net5.0\LibraryModel.pdb
+C:\Users\mihai\Source\Repos\mihainegrisan\Negrisan_Mihai_Lab2\LibraryModel\obj\Debug\net5.0\LibraryModel.genruntimeconfig.cache
