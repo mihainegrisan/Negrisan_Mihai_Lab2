@@ -22,7 +22,7 @@ namespace Negrisan_Mihai_Lab2.Data
             modelBuilder.Entity<Book>().ToTable("Book");
             modelBuilder.Entity<Publisher>().ToTable("Publisher");
             modelBuilder.Entity<PublishedBook>().ToTable("PublishedBook");
-            
+
             modelBuilder.Entity<PublishedBook>()
                 .HasKey(c => new { c.BookID, c.PublisherID }); //configureaza cheia primara compusa
         }

@@ -7,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Negrisan_Mihai_Lab2.Data;
 using Negrisan_Mihai_Lab2.Hubs;
+using System;
 
 namespace Negrisan_Mihai_Lab2
 {
@@ -22,15 +23,39 @@ namespace Negrisan_Mihai_Lab2
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.Configure<IdentityOptions>(options => { 
-                options.Password.RequiredLength = 8;
-                options.Lockout.MaxFailedAccessAttempts = 3;
-            });
-
             services.AddControllersWithViews();
             services.AddDbContext<LibraryContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddSignalR();
+            services.AddRazorPages();
+
+            services.Configure<IdentityOptions>(options =>
+            {
+                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
+                options.Password.RequiredLength = 8;
+                options.Lockout.MaxFailedAccessAttempts = 3;
+                options.Lockout.AllowedForNewUsers = true;
+            });
+
+            services.AddAuthorization(opts =>
+            {
+                opts.AddPolicy("OnlySales", policy =>
+                {
+                    policy.RequireClaim("Department", "Sales");
+                });
+            });
+
+
+            services.AddAuthorization(opts => {
+                opts.AddPolicy("SalesManager", policy => {
+                    policy.RequireRole("Manager");
+                    policy.RequireClaim("Department", "Sales");
+                });
+            });
+            services.ConfigureApplicationCookie(opts =>
+            {
+                opts.AccessDeniedPath = "/Identity/Account/AccessDenied";
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

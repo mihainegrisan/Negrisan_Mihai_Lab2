@@ -1,14 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Negrisan_Mihai_Lab2.Data;
 using Negrisan_Mihai_Lab2.Models;
 using Negrisan_Mihai_Lab2.Models.LibraryViewModels;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
 
 namespace Negrisan_Mihai_Lab2.Controllers
 {

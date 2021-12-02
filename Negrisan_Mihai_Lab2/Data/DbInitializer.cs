@@ -1,9 +1,6 @@
 ﻿using Negrisan_Mihai_Lab2.Models;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Security.Policy;
-using System.Threading.Tasks;
 using Publisher = Negrisan_Mihai_Lab2.Models.Publisher;
 
 namespace Negrisan_Mihai_Lab2.Data

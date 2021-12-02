@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Negrisan_Mihai_Lab2.Data;
 using System;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace Negrisan_Mihai_Lab2
 {

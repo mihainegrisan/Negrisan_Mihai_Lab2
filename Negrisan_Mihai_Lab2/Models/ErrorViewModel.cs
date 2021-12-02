@@ -1,5 +1,3 @@
-using System;
-
 namespace Negrisan_Mihai_Lab2.Models
 {
     public class ErrorViewModel

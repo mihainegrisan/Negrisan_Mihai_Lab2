@@ -1,17 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Negrisan_Mihai_Lab2.Data;
 using Negrisan_Mihai_Lab2.Models;
+using System;
+using System.Data;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Negrisan_Mihai_Lab2.Controllers
 {
+    [Authorize(Roles = "Employee")]
     public class BooksController : Controller
     {
         private readonly LibraryContext _context;
@@ -22,6 +21,7 @@ namespace Negrisan_Mihai_Lab2.Controllers
         }
 
         // GET: Books
+        [AllowAnonymous]
         public async Task<IActionResult> Index(
             string sortOrder,
             string currentFilter,
@@ -31,7 +31,7 @@ namespace Negrisan_Mihai_Lab2.Controllers
             ViewData["CurrentSort"] = sortOrder;
             ViewData["TitleSortParm"] = String.IsNullOrEmpty(sortOrder) ? "title_desc" : "";
             ViewData["PriceSortParm"] = sortOrder == "Price" ? "price_desc" : "Price";
-            
+
             if (searchString != null)
             {
                 pageNumber = 1;
@@ -71,6 +71,7 @@ namespace Negrisan_Mihai_Lab2.Controllers
         }
 
         // GET: Books/Details/5
+        [AllowAnonymous]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -105,7 +106,7 @@ namespace Negrisan_Mihai_Lab2.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Title,Author,Price")] Book book)
         {
-            try 
+            try
             {
                 if (ModelState.IsValid)
                 {
@@ -156,8 +157,8 @@ namespace Negrisan_Mihai_Lab2.Controllers
             if (await TryUpdateModelAsync<Book>(
                 bookToUpdate,
                 "",
-                b => b.Author, 
-                b => b.Title, 
+                b => b.Author,
+                b => b.Title,
                 b => b.Price))
             {
                 try
@@ -215,7 +216,7 @@ namespace Negrisan_Mihai_Lab2.Controllers
                 _context.Books.Remove(book);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
-            } 
+            }
             catch (DbUpdateException)
             {
                 return RedirectToAction(nameof(Delete), new { id = id, saveChangesError = true });

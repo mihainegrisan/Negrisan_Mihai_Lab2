@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace Negrisan_Mihai_Lab2.Models.LibraryViewModels
+﻿namespace Negrisan_Mihai_Lab2.Models.LibraryViewModels
 {
     public class PublishedBookData
     {

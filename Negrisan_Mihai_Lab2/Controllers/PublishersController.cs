@@ -1,16 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Negrisan_Mihai_Lab2.Data;
 using Negrisan_Mihai_Lab2.Models;
 using Negrisan_Mihai_Lab2.Models.LibraryViewModels;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Negrisan_Mihai_Lab2.Controllers
 {
+    [Authorize(Policy = "OnlySales")]
     public class PublishersController : Controller
     {
         private readonly LibraryContext _context;
@@ -113,7 +113,7 @@ namespace Negrisan_Mihai_Lab2.Controllers
 
             return View(publisher);
         }
-        
+
         private void PopulatePublishedBookData(Publisher publisher)
         {
             var allBooks = _context.Books;
