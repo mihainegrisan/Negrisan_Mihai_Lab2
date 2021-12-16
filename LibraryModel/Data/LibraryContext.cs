@@ -1,7 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Negrisan_Mihai_Lab2.Models;
+﻿using LibraryModel.Models;
+using Microsoft.EntityFrameworkCore;
 
-namespace Negrisan_Mihai_Lab2.Data
+namespace LibraryModel.Data
 {
     public class LibraryContext : DbContext
     {

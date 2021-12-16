@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Negrisan_Mihai_Lab2.Models
+namespace LibraryModel.Models
 {
     public class Customer
     {

@@ -9,6 +9,8 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using LibraryModel.Data;
+using LibraryModel.Models;
 
 namespace Negrisan_Mihai_Lab2.Controllers
 {

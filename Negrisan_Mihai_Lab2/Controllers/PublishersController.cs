@@ -7,6 +7,8 @@ using Negrisan_Mihai_Lab2.Models.LibraryViewModels;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using LibraryModel.Data;
+using LibraryModel.Models;
 
 namespace Negrisan_Mihai_Lab2.Controllers
 {

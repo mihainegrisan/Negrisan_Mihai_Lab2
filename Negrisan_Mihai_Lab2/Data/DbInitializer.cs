@@ -1,7 +1,9 @@
 ﻿using Negrisan_Mihai_Lab2.Models;
 using System;
 using System.Linq;
-using Publisher = Negrisan_Mihai_Lab2.Models.Publisher;
+using LibraryModel.Data;
+using LibraryModel.Models;
+using Publisher = LibraryModel.Models.Publisher;
 
 namespace Negrisan_Mihai_Lab2.Data
 {

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using LibraryModel.Models;
 
 namespace Negrisan_Mihai_Lab2.Models.LibraryViewModels
 {

@@ -8,6 +8,7 @@ using Microsoft.Extensions.Hosting;
 using Negrisan_Mihai_Lab2.Data;
 using Negrisan_Mihai_Lab2.Hubs;
 using System;
+using LibraryModel.Data;
 
 namespace Negrisan_Mihai_Lab2
 {

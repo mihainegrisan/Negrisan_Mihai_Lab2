@@ -4,6 +4,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Negrisan_Mihai_Lab2.Data;
 using System;
+using LibraryModel.Data;
 
 namespace Negrisan_Mihai_Lab2
 {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Negrisan_Mihai_Lab2.Models
+namespace LibraryModel.Models
 {
     public class Order
     {
