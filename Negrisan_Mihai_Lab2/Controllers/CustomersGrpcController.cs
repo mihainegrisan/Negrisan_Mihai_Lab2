@@ -41,78 +41,133 @@ namespace Negrisan_Mihai_Lab2.Controllers
             return BadRequest();
         }
 
-        [HttpGet]
+        //[HttpGet]
+        //public IActionResult Edit(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return BadRequest();
+        //    }
+
+        //    var client = new CustomerService.CustomerServiceClient(channel);
+        //    var grpcCustomer = client.Get(new CustomerId() {Id = id.Value});
+
+        //    var customer = new LibraryModel.Models.Customer()
+        //    {
+        //        CustomerID = grpcCustomer.CustomerId,
+        //        Name = grpcCustomer.Name,
+        //        Address = grpcCustomer.Adress,
+        //        BirthDate = DateTime.Parse(grpcCustomer.Birthdate)
+        //    };
+
+        //    return View(customer);
+        //}
+
+        //[HttpPost]
+        //public IActionResult Edit(Customer customer)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        var client = new CustomerService.CustomerServiceClient(channel);
+        //        customer = client.Get(new CustomerId() {Id = customer.CustomerId});
+        //        client.Update(customer);
+
+        //        return RedirectToAction(nameof(Index));
+        //    }
+
+        //    return BadRequest();
+        //}
+
         public IActionResult Edit(int? id)
         {
             if (id == null)
             {
-                return BadRequest();
+                return NotFound();
             }
-
             var client = new CustomerService.CustomerServiceClient(channel);
-            var grpcCustomer = client.Get(new CustomerId() {Id = id.Value});
-            client.Update(grpcCustomer);
-
-            var customer = new LibraryModel.Models.Customer()
+            Customer customer = client.Get(new CustomerId() { Id = (int)id });
+            if (customer == null)
             {
-                CustomerID = grpcCustomer.CustomerId,
-                Name = grpcCustomer.Name,
-                Address = grpcCustomer.Adress,
-                BirthDate = DateTime.Parse(grpcCustomer.Birthdate)
-            };
-
+                return NotFound();
+            }
             return View(customer);
         }
-
         [HttpPost]
-        public IActionResult Edit(Customer customer)
+        public IActionResult Edit(int id, Customer customer)
         {
+            if (id != customer.CustomerId)
+            {
+                return NotFound();
+            }
             if (ModelState.IsValid)
             {
                 var client = new CustomerService.CustomerServiceClient(channel);
-                customer = client.Get(new CustomerId() {Id = customer.CustomerId});
-                client.Update(customer);
-
+                Customer response = client.Update(customer);
                 return RedirectToAction(nameof(Index));
             }
-
-            return BadRequest();
-        }
-
-        [HttpGet]
-        public IActionResult Delete(int? id)
-        {
-            var client = new CustomerService.CustomerServiceClient(channel);
-            if (id == null)
-            {
-                return BadRequest();
-            }
-
-            var grpcCustomer = client.Get(new CustomerId() { Id = id.Value });
-
-            var customer = new LibraryModel.Models.Customer()
-            {
-                CustomerID = grpcCustomer.CustomerId,
-                Name = grpcCustomer.Name,
-                Address = grpcCustomer.Adress,
-                BirthDate = DateTime.Parse(grpcCustomer.Birthdate)
-            };
-
             return View(customer);
         }
 
-        [HttpPost]
-        public IActionResult Delete(int id)
+
+        //[HttpGet]
+        //public IActionResult Delete(int? id)
+        //{
+        //    var client = new CustomerService.CustomerServiceClient(channel);
+        //    if (id == null)
+        //    {
+        //        return BadRequest();
+        //    }
+
+        //    var grpcCustomer = client.Get(new CustomerId() { Id = id.Value });
+
+        //    var customer = new LibraryModel.Models.Customer()
+        //    {
+        //        CustomerID = grpcCustomer.CustomerId,
+        //        Name = grpcCustomer.Name,
+        //        Address = grpcCustomer.Adress,
+        //        BirthDate = DateTime.Parse(grpcCustomer.Birthdate)
+        //    };
+
+        //    return View(customer);
+        //}
+
+        //[HttpPost]
+        //public IActionResult Delete(int id)
+        //{
+        //    var client = new CustomerService.CustomerServiceClient(channel);
+
+        //    //Customer customer = client.Get(new CustomerId() {Id = (int) id});
+        //    var customerId = new CustomerId() {Id = (int) id};
+
+        //    client.Delete(customerId);
+
+        //    return RedirectToAction(nameof(Index));
+        //}
+
+        public IActionResult Delete(int? id)
         {
+            if (id == null)
+            {
+                return NotFound();
+            }
             var client = new CustomerService.CustomerServiceClient(channel);
-
-            //Customer customer = client.Get(new CustomerId() {Id = (int) id});
-            var customerId = new CustomerId() {Id = (int) id};
-
-            client.Delete(customerId);
-
-            return RedirectToAction(nameof(Index));
+            Customer customer = client.Get(new CustomerId() { Id = (int)id });
+            if (customer == null)
+            {
+                return NotFound();
+            }
+            return View(customer);
         }
 
+        [HttpPost, ActionName("Delete")]
+        public IActionResult DeleteConfirmed(int id)
+        {
+            var client = new CustomerService.CustomerServiceClient(channel);
+            Empty response = client.Delete(new CustomerId()
+            {
+                Id = id
+            });
+            return RedirectToAction(nameof(Index));
+        }
     }
 }

@@ -33,18 +33,18 @@ namespace GrpcCustomersService.Services
             return Task.FromResult(pl);
         }
 
-        public override Task<Customer> Get(CustomerId customerId, ServerCallContext context)
+        public override Task<Customer> Get(CustomerId requestData, ServerCallContext context)
         {
-            var customer = db.Customers.Find(customerId.Id);
-            var grpcCustomer = new Customer
+            var data = db.Customers.Find(requestData.Id);
+
+            Customer emp = new Customer()
             {
-                CustomerId = customer.CustomerID,
-                Name = customer.Name,
-                Adress = customer.Address,
-                Birthdate = customer.BirthDate.ToString(CultureInfo.CurrentCulture),
+                CustomerId = data.CustomerID,
+                Name = data.Name,
+                Adress = data.Address
             };
 
-            return Task.FromResult(grpcCustomer);
+            return Task.FromResult(emp);
         }
 
         public override Task<Empty> Insert(Customer requestData, ServerCallContext context)
@@ -62,32 +62,54 @@ namespace GrpcCustomersService.Services
             return Task.FromResult(new Empty());
         }
 
-        public override Task<Customer> Update(Customer requestData, ServerCallContext context)
+        //public override Task<Customer> Update(Customer requestData, ServerCallContext context)
+        //{
+        //    db.Customers.Update(new ModelAccess.Customer
+        //    {
+        //        CustomerID = requestData.CustomerId,
+        //        Name = requestData.Name,
+        //        Address = requestData.Adress,
+        //        BirthDate = DateTime.Parse(requestData.Birthdate)
+        //    });
+
+        //    db.SaveChanges();
+
+        //    return Task.FromResult(requestData);
+        //}
+
+        public override Task<Empty> Update(Customer requestData, ServerCallContext context)
         {
-            db.Customers.Update(new ModelAccess.Customer
+            db.Customers.Update(new ModelAccess.Customer()
             {
                 CustomerID = requestData.CustomerId,
                 Name = requestData.Name,
                 Address = requestData.Adress,
                 BirthDate = DateTime.Parse(requestData.Birthdate)
             });
-
             db.SaveChanges();
-
-            return Task.FromResult(requestData);
+            return Task.FromResult(new Empty());
         }
 
-        public override Task<Empty> Delete(CustomerId customerId, ServerCallContext context)
+
+        //public override Task<Empty> Delete(CustomerId customerId, ServerCallContext context)
+        //{
+        //    //var customer = db.Customers.FirstOrDefault(c => c.CustomerID == customerId.Id);
+        //    var customer = db.Customers.Find(customerId.Id);
+
+        //    if (customer != null)
+        //    {
+        //        db.Customers.Remove(customer);
+        //        db.SaveChanges();
+        //    }
+
+        //    return Task.FromResult(new Empty());
+        //}
+
+        public override Task<Empty> Delete(CustomerId requestData, ServerCallContext context)
         {
-            //var customer = db.Customers.FirstOrDefault(c => c.CustomerID == customerId.Id);
-            var customer = db.Customers.Find(customerId.Id);
-
-            if (customer != null)
-            {
-                db.Customers.Remove(customer);
-                db.SaveChanges();
-            }
-
+            var data = db.Customers.Find(requestData.Id);
+            db.Customers.Remove(data);
+            db.SaveChanges();
             return Task.FromResult(new Empty());
         }
     }
